@@ -120,10 +120,6 @@ export default function App() {
                 <span className="text-xs text-zinc-300 font-medium">Landslide Hazard Zone</span>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-4 h-4 rounded-full border-2 border-red-500 bg-red-500/20" />
-                <span className="text-xs text-zinc-300 font-medium">Recent Seismic Activity</span>
-              </div>
-              <div className="flex items-center gap-3">
                 <div className="w-4 h-1 bg-emerald-500 rounded-full border-t-2 border-dashed border-emerald-400" />
                 <span className="text-xs text-zinc-300 font-medium">Emergency Route</span>
               </div>

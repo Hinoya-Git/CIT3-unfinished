@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, Polygon, Circle, Polyline, useMap } from 'react-leaflet';
 import L from 'leaflet';
-import { BAGUIO_CENTER, SAFE_ZONES, LANDSLIDE_ZONES, EARTHQUAKE_MARKERS, SafeZone } from '../data';
+import { BAGUIO_CENTER, SAFE_ZONES, LANDSLIDE_ZONES, SafeZone } from '../data';
 import { Map as MapIcon, Layers, Navigation, AlertTriangle, ShieldCheck } from 'lucide-react';
 
 // Fix Leaflet default icon issue
@@ -89,30 +89,6 @@ export const MapComponent: React.FC<MapComponentProps> = ({ viewMode, userLocati
               </div>
             </Popup>
           </Polygon>
-        ))}
-
-        {/* Earthquake Markers */}
-        {EARTHQUAKE_MARKERS.map((eq) => (
-          <Circle
-            key={eq.id}
-            center={[eq.lat, eq.lng]}
-            radius={200}
-            pathOptions={{
-              fillColor: '#ef4444',
-              fillOpacity: 0.3,
-              color: '#ef4444',
-              weight: 1,
-              className: 'animate-pulse-slow'
-            }}
-          >
-            <Popup>
-              <div className="p-1">
-                <h3 className="font-bold text-orange-600">Seismic Activity</h3>
-                <p className="text-xs">Magnitude: {eq.magnitude}</p>
-                <p className="text-xs text-gray-500">Time: {eq.time}</p>
-              </div>
-            </Popup>
-          </Circle>
         ))}
 
         {/* Safe Zones */}

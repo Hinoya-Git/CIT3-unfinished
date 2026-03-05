@@ -13,12 +13,11 @@ export interface LandslideZone {
   coordinates: [number, number][];
 }
 
-export interface EarthquakeMarker {
+export interface EmergencyContact {
   id: string;
-  lat: number;
-  lng: number;
-  magnitude: number;
-  time: string;
+  name: string;
+  number: string;
+  type: 'Police' | 'Medical' | 'Rescue' | 'Fire';
 }
 
 export const BAGUIO_CENTER: [number, number] = [16.4023, 120.5960];
@@ -99,19 +98,35 @@ export const LANDSLIDE_ZONES: LandslideZone[] = [
   }
 ];
 
-export const EARTHQUAKE_MARKERS: EarthquakeMarker[] = [
+export const EMERGENCY_CONTACTS: EmergencyContact[] = [
   {
-    id: 'eq1',
-    lat: 16.405,
-    lng: 120.610,
-    magnitude: 3.2,
-    time: '2 hours ago'
+    id: 'c1',
+    name: 'Baguio City Police Office',
+    number: '911 / (074) 442-1211',
+    type: 'Police'
   },
   {
-    id: 'eq2',
-    lat: 16.395,
-    lng: 120.580,
-    magnitude: 2.8,
-    time: '5 hours ago'
+    id: 'c2',
+    name: 'Baguio CDRRMO (Rescue)',
+    number: '(074) 442-1900 / 0927-628-0498',
+    type: 'Rescue'
+  },
+  {
+    id: 'c3',
+    name: 'Baguio General Hospital (ER)',
+    number: '(074) 442-4234',
+    type: 'Medical'
+  },
+  {
+    id: 'c4',
+    name: 'Baguio Fire Station',
+    number: '(074) 442-2222',
+    type: 'Fire'
+  },
+  {
+    id: 'c5',
+    name: 'Philippine Red Cross Baguio',
+    number: '(074) 442-4036',
+    type: 'Medical'
   }
 ];
