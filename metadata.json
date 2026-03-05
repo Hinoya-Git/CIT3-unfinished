@@ -1,0 +1,5 @@
+{
+  "name": "Baguio Resilience Map",
+  "description": "An interactive emergency resilience map for Baguio City, highlighting landslide zones, seismic activity, and safe zones.",
+  "requestFramePermissions": ["geolocation"]
+}
