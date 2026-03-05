@@ -41,6 +41,7 @@ interface MapComponentProps {
   viewMode: 'standard' | 'satellite';
   userLocation: [number, number] | null;
   nearestSafeZone: SafeZone | null;
+  isAlertActive?: boolean;
 }
 
 function MapUpdater({ center }: { center: [number, number] }) {
@@ -51,7 +52,7 @@ function MapUpdater({ center }: { center: [number, number] }) {
   return null;
 }
 
-export const MapComponent: React.FC<MapComponentProps> = ({ viewMode, userLocation, nearestSafeZone }) => {
+export const MapComponent: React.FC<MapComponentProps> = ({ viewMode, userLocation, nearestSafeZone, isAlertActive }) => {
   const roadmapUrl = 'https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}';
   const satelliteUrl = 'https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}';
 
@@ -129,10 +130,11 @@ export const MapComponent: React.FC<MapComponentProps> = ({ viewMode, userLocati
           <Polyline
             positions={[userLocation, [nearestSafeZone.lat, nearestSafeZone.lng]]}
             pathOptions={{
-              color: '#10b981',
-              weight: 4,
-              dashArray: '10, 10',
-              opacity: 0.8
+              color: isAlertActive ? '#22c55e' : '#10b981',
+              weight: isAlertActive ? 6 : 4,
+              dashArray: isAlertActive ? '1, 10' : '10, 10',
+              opacity: 1,
+              className: isAlertActive ? 'animate-dash' : ''
             }}
           />
         )}
