@@ -29,3 +29,8 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        
+      - name: Setup Node
+        uses: actions/setup-node@v4  # Change v3 to v4
+        with:
+          node-version: 20
