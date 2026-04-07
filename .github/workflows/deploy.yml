@@ -16,6 +16,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup Node
+        uses: actions/setup-node@v4  # Change v3 to v4
+        with:
+          node-version: 20
+
       - name: Install and Build
         run: |
           npm install
@@ -30,7 +35,3 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
         
-      - name: Setup Node
-        uses: actions/setup-node@v4  # Change v3 to v4
-        with:
-          node-version: 20
