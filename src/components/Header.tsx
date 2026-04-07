@@ -19,7 +19,7 @@ export const Header: React.FC<HeaderProps> = ({ viewMode, setViewMode, onLocate,
         </div>
         <div>
           <h1 className="text-white font-black text-lg tracking-tight uppercase">
-            Baguio <span className="text-emerald-500">Resilience</span> Map
+            Camp 7 <span className="text-emerald-500">Resilience</span> Map
           </h1>
           <p className="text-[10px] text-zinc-500 font-bold uppercase tracking-widest">
             Emergency Response Dashboard • Live Status

@@ -147,7 +147,7 @@ export default function App() {
                   {isInHazardZone ? 'Hazard Detected' : 'System Online'}
                 </span>
               </div>
-              <p className="text-[9px] text-zinc-500 uppercase font-bold">Baguio Emergency Network</p>
+              <p className="text-[9px] text-zinc-500 uppercase font-bold">Camp 7 Emergency Network</p>
             </div>
           </div>
 

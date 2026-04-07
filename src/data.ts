@@ -5,12 +5,19 @@ export interface SafeZone {
   lng: number;
   capacity: 'Safe/Available' | 'Full';
   description: string;
+  boundary?: [number, number][];
 }
 
 export interface LandslideZone {
   id: string;
   name: string;
   coordinates: [number, number][];
+}
+
+export interface EmergencyRoute {
+  id: string;
+  name: string;
+  path: [number, number][];
 }
 
 export interface EmergencyContact {
@@ -20,80 +27,98 @@ export interface EmergencyContact {
   type: 'Police' | 'Medical' | 'Rescue' | 'Fire';
 }
 
-export const BAGUIO_CENTER: [number, number] = [16.4023, 120.5960];
+export const CAMP_7_CENTER: [number, number] = [16.38168, 120.60687];
 
 export const SAFE_ZONES: SafeZone[] = [
   {
     id: '1',
-    name: 'Melvin Jones Grandstand',
-    lat: 16.4116,
-    lng: 120.5947,
+    name: 'Camp 7 Barangay Hall',
+    lat: 16.38168,
+    lng: 120.60687,
     capacity: 'Safe/Available',
-    description: 'Open field area, primary evacuation site.'
-  },
-  {
-    id: '2',
-    name: 'UC Gymnasium',
-    lat: 16.4145,
-    lng: 120.5992,
-    capacity: 'Safe/Available',
-    description: 'Indoor facility, high capacity.'
+    description: 'Primary evacuation center and command post.',
+    boundary: [
+      [16.38188, 120.60667],
+      [16.38188, 120.60707],
+      [16.38148, 120.60707],
+      [16.38148, 120.60667]
+    ]
   },
   {
     id: '3',
-    name: 'Wright Park',
-    lat: 16.4162,
-    lng: 120.6135,
-    capacity: 'Full',
-    description: 'Open park area, currently at capacity.'
+    name: 'Camp 7 National High School',
+    lat: 16.38078,
+    lng: 120.60552,
+    capacity: 'Safe/Available',
+    description: 'School grounds and buildings for temporary shelter.',
+    boundary: [
+      [16.38098, 120.60532],
+      [16.38098, 120.60572],
+      [16.38058, 120.60572],
+      [16.38058, 120.60532]
+    ]
   },
   {
     id: '4',
-    name: 'Baguio City Hall Grounds',
-    lat: 16.4132,
-    lng: 120.5905,
+    name: 'Woodsgate Open Space',
+    lat: 16.3861,
+    lng: 120.6052,
     capacity: 'Safe/Available',
-    description: 'Government center evacuation point.'
+    description: 'Open field suitable for tents and temporary evacuation.',
+    boundary: [
+      [16.3863, 120.6050],
+      [16.3863, 120.6054],
+      [16.3859, 120.6054],
+      [16.3859, 120.6050]
+    ]
   },
   {
     id: '5',
-    name: 'PMA Parade Ground',
-    lat: 16.3785,
-    lng: 120.6225,
+    name: 'Eagle Crest Park',
+    lat: 16.3905,
+    lng: 120.6012,
     capacity: 'Safe/Available',
-    description: 'Large open field, southern Baguio.'
+    description: 'Community park designated as a safe assembly area.',
+    boundary: [
+      [16.3907, 120.6010],
+      [16.3907, 120.6014],
+      [16.3903, 120.6014],
+      [16.3903, 120.6010]
+    ]
   }
 ];
 
 export const LANDSLIDE_ZONES: LandslideZone[] = [
   {
     id: 'lz1',
-    name: 'Kennon Road Slopes',
+    name: 'Kennon Road Steep Curve',
     coordinates: [
-      [16.385, 120.585],
-      [16.390, 120.595],
-      [16.380, 120.605],
-      [16.375, 120.590]
+      [16.3791, 120.6110],
+      [16.3791, 120.6060],
+      [16.3591, 120.6050],
+      [16.3591, 120.6100]
     ]
   },
   {
-    id: 'lz2',
-    name: 'Irisan High-Risk Area',
+    id: 'fz1',
+    name: 'Flood Risk Zone',
     coordinates: [
-      [16.415, 120.555],
-      [16.425, 120.565],
-      [16.420, 120.575],
-      [16.410, 120.560]
+      [16.38573, 120.60155],
+      [16.38498, 120.60055],
+      [16.38098, 120.60355],
+      [16.38173, 120.60455]
     ]
-  },
+  }
+];
+
+export const EMERGENCY_ROUTES: EmergencyRoute[] = [
   {
-    id: 'lz3',
-    name: 'Quirino Hill Steep Slopes',
-    coordinates: [
-      [16.425, 120.595],
-      [16.435, 120.605],
-      [16.430, 120.615],
-      [16.420, 120.600]
+    id: 'er1',
+    name: 'Kennon Road to Barangay Hall',
+    path: [
+      [16.3791, 120.6085],
+      [16.3840, 120.6050],
+      [16.38168, 120.60687]
     ]
   }
 ];

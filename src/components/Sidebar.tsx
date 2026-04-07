@@ -83,17 +83,29 @@ export const Sidebar: React.FC<SidebarProps> = ({ nearestSafeZone, onSelectZone 
             <Phone size={14} className="text-amber-500" /> Emergency Contacts
           </h2>
           <div className="space-y-2">
-            {EMERGENCY_CONTACTS.map((contact) => (
-              <div key={contact.id} className="p-2 bg-zinc-900/50 rounded-lg border border-zinc-800 flex items-center gap-3">
-                <div className="p-2 bg-zinc-800 rounded-lg">
-                  <ContactIcon type={contact.type} />
+            {EMERGENCY_CONTACTS.map((contact) => {
+              const primaryNumber = contact.number.split('/')[0].trim().replace(/[^0-9+]/g, '');
+              return (
+                <div key={contact.id} className="p-2 bg-zinc-900/50 rounded-lg border border-zinc-800 flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-3 overflow-hidden">
+                    <div className="p-2 bg-zinc-800 rounded-lg shrink-0">
+                      <ContactIcon type={contact.type} />
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-[10px] text-zinc-500 font-bold uppercase tracking-tight truncate">{contact.name}</p>
+                      <p className="text-xs text-zinc-200 font-mono truncate">{contact.number}</p>
+                    </div>
+                  </div>
+                  <a 
+                    href={`tel:${primaryNumber}`}
+                    className="p-2 bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 rounded-lg transition-colors shrink-0"
+                    title="Call"
+                  >
+                    <Phone size={14} />
+                  </a>
                 </div>
-                <div>
-                  <p className="text-[10px] text-zinc-500 font-bold uppercase tracking-tight">{contact.name}</p>
-                  <p className="text-xs text-zinc-200 font-mono">{contact.number}</p>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
